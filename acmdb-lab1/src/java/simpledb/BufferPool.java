@@ -2,6 +2,8 @@ package simpledb;
 
 import java.io.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -26,12 +28,18 @@ public class BufferPool {
     constructor instead. */
     public static final int DEFAULT_PAGES = 50;
 
+    private int pageNum;
+
+    private Map<PageId, Page> pageMap;
+
     /**
      * Creates a BufferPool that caches up to numPages pages.
      *
      * @param numPages maximum number of pages in this buffer pool.
      */
     public BufferPool(int numPages) {
+        pageNum = numPages;
+        pageMap = new HashMap<PageId, Page>();
         // some code goes here
     }
     
@@ -49,6 +57,7 @@ public class BufferPool {
     	BufferPool.pageSize = PAGE_SIZE;
     }
 
+
     /**
      * Retrieve the specified page with the associated permissions.
      * Will acquire a lock and may block if that lock is held by another
@@ -64,10 +73,19 @@ public class BufferPool {
      * @param pid the ID of the requested page
      * @param perm the requested permissions on the page
      */
-    public  Page getPage(TransactionId tid, PageId pid, Permissions perm)
+    public Page getPage(TransactionId tid, PageId pid, Permissions perm)
         throws TransactionAbortedException, DbException {
+
         // some code goes here
-        return null;
+        if (pageMap.containsKey(pid)){
+            return pageMap.get(pid);
+        }
+        else{
+            HeapFile table = (HeapFile) Database.getCatalog().getDatabaseFile(pid.getTableId());
+            HeapPage newPage = (HeapPage) table.readPage(pid);
+            pageMap.put(pid, newPage);
+            return newPage;
+        }
     }
 
     /**

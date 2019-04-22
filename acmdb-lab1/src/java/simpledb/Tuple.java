@@ -12,7 +12,9 @@ import java.util.Iterator;
 public class Tuple implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Field[] fieldList;
+    private TupleDesc schema;
+    private RecordId recordId;
     /**
      * Create a new tuple with the specified schema (type).
      *
@@ -21,6 +23,8 @@ public class Tuple implements Serializable {
      *            instance with at least one field.
      */
     public Tuple(TupleDesc td) {
+        schema = td;
+        fieldList = new Field[td.numFields()];
         // some code goes here
     }
 
@@ -29,7 +33,7 @@ public class Tuple implements Serializable {
      */
     public TupleDesc getTupleDesc() {
         // some code goes here
-        return null;
+        return this.schema;
     }
 
     /**
@@ -38,7 +42,7 @@ public class Tuple implements Serializable {
      */
     public RecordId getRecordId() {
         // some code goes here
-        return null;
+        return this.recordId;
     }
 
     /**
@@ -48,6 +52,7 @@ public class Tuple implements Serializable {
      *            the new RecordId for this tuple.
      */
     public void setRecordId(RecordId rid) {
+        this.recordId = rid;
         // some code goes here
     }
 
@@ -60,6 +65,7 @@ public class Tuple implements Serializable {
      *            new value for the field.
      */
     public void setField(int i, Field f) {
+        fieldList[i] = f;
         // some code goes here
     }
 
@@ -71,7 +77,7 @@ public class Tuple implements Serializable {
      */
     public Field getField(int i) {
         // some code goes here
-        return null;
+        return fieldList[i];
     }
 
     /**
@@ -84,7 +90,17 @@ public class Tuple implements Serializable {
      */
     public String toString() {
         // some code goes here
-        throw new UnsupportedOperationException("Implement this");
+        String string = "";
+        for (Field field: fieldList){
+            if(field == null){
+                string += "null\t";
+            }
+            else{
+                string += field.toString() + "\t";
+            }
+        }
+        string = string.substring(0, string.length() - 1) + "\n";
+        return string;
     }
 
     /**
@@ -94,7 +110,7 @@ public class Tuple implements Serializable {
     public Iterator<Field> fields()
     {
         // some code goes here
-        return null;
+        return Arrays.asList(fieldList).iterator();
     }
 
     /**
@@ -102,6 +118,8 @@ public class Tuple implements Serializable {
      * */
     public void resetTupleDesc(TupleDesc td)
     {
+        schema = td;
+        fieldList = new Field[td.numFields()];
         // some code goes here
     }
 }

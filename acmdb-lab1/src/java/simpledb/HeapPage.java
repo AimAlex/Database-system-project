@@ -67,7 +67,7 @@ public class HeapPage implements Page {
     */
     private int getNumTuples() {        
         // some code goes here
-        return 0;
+        return (int)Math.floor((BufferPool.getPageSize() * 8) / (td.getSize() * 8 + 1));
 
     }
 
@@ -76,9 +76,8 @@ public class HeapPage implements Page {
      * @return the number of bytes in the header of a page in a HeapFile with each tuple occupying tupleSize bytes
      */
     private int getHeaderSize() {        
-        
+        return (int)Math.ceil(getNumTuples() / 8.0);
         // some code goes here
-        return 0;
                  
     }
     
@@ -112,7 +111,7 @@ public class HeapPage implements Page {
      */
     public HeapPageId getId() {
     // some code goes here
-    throw new UnsupportedOperationException("implement this");
+        return this.pid;
     }
 
     /**
@@ -281,8 +280,14 @@ public class HeapPage implements Page {
      * Returns the number of empty slots on this page.
      */
     public int getNumEmptySlots() {
+        int num = 0;
+        for (int i = 0; i < numSlots; ++i) {
+            if (!(this.isSlotUsed(i))){
+                ++num;
+            }
+        }
+        return num;
         // some code goes here
-        return 0;
     }
 
     /**
@@ -290,7 +295,19 @@ public class HeapPage implements Page {
      */
     public boolean isSlotUsed(int i) {
         // some code goes here
-        return false;
+
+        if (i < 0 || i >= numSlots){
+            throw new IllegalArgumentException("");
+        }
+        int Byte = i / 8;
+        int Bit = i % 8;
+
+        if (Byte >= header.length){
+            throw new IllegalArgumentException("");
+        }
+
+        byte header = this.header[Byte];
+        return ((header & 0x0FF) >> Bit) % 2== 1;
     }
 
     /**
@@ -307,7 +324,13 @@ public class HeapPage implements Page {
      */
     public Iterator<Tuple> iterator() {
         // some code goes here
-        return null;
+        ArrayList<Tuple> tupleUsed = new ArrayList<Tuple>();
+        for (int i = 0; i < tuples.length; ++i) {
+            if (isSlotUsed(i)){
+                tupleUsed.add(tuples[i]);
+            }
+        }
+        return tupleUsed.iterator();
     }
 
 }
