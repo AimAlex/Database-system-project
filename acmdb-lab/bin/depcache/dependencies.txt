@@ -365,7 +365,6 @@ simpledb.Database
 simpledb.BTreeFileEncoder
 simpledb.systemtest.SystemTestUtil
 simpledb.BTreePageId
-java.lang.Object
 org.junit.Assert
 simpledb.IntField
 java.util.Collections
@@ -803,6 +802,7 @@ simpledb.Field
 java.lang.Object
 ||:simpledb.Tuple
 simpledb.Tuple
+simpledb.RecordId
 java.util.Arrays
 java.util.List
 simpledb.Field
@@ -1445,7 +1445,6 @@ simpledb.Field
 simpledb.Permissions
 simpledb.systemtest.BTreeFileInsertTest
 simpledb.BTreePageId
-java.lang.Object
 org.junit.Assert
 simpledb.IntField
 simpledb.BTreeChecker
