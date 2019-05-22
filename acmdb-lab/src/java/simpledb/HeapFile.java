@@ -113,6 +113,7 @@ public class HeapFile implements DbFile {
             }
         }
 
+
         HeapPageId pid = new HeapPageId(getId(), numPages());
         HeapPage page = new HeapPage(pid, HeapPage.createEmptyPageData());
         page.insertTuple(t);
@@ -122,6 +123,7 @@ public class HeapFile implements DbFile {
         rf.seek(pid.pageNumber() * BufferPool.getPageSize());
         rf.write(page.getPageData(), 0, BufferPool.getPageSize());
         rf.close();
+
 
         return pages;
         // not necessary for lab1
