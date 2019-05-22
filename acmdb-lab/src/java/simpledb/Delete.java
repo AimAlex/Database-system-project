@@ -19,24 +19,42 @@ public class Delete extends Operator {
      * @param child
      *            The child operator from which to read tuples for deletion
      */
+
+    private TransactionId t;
+    private DbIterator child;
+    private TupleDesc td;
+    private boolean fetch;
+
     public Delete(TransactionId t, DbIterator child) {
+        this.t = t;
+        this.child = child;
+        td = new TupleDesc(new Type[]{Type.INT_TYPE});
+        fetch = true;
         // some code goes here
     }
 
     public TupleDesc getTupleDesc() {
         // some code goes here
-        return null;
+        return td;
     }
 
     public void open() throws DbException, TransactionAbortedException {
+        child.open();
+        super.open();
+        fetch = false;
         // some code goes here
     }
 
     public void close() {
+        super.close();
+        child.close();
+        fetch = true;
         // some code goes here
     }
 
     public void rewind() throws DbException, TransactionAbortedException {
+        child.rewind();
+        fetch = false;
         // some code goes here
     }
 
@@ -51,7 +69,24 @@ public class Delete extends Operator {
      */
     protected Tuple fetchNext() throws TransactionAbortedException, DbException {
         // some code goes here
-        return null;
+        if(fetch){
+            return null;
+        }
+        fetch = true;
+        int number = 0;
+        while(child.hasNext()){
+            Tuple tmp = child.next();
+            try{
+                Database.getBufferPool().deleteTuple(t, tmp);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ++number;
+        }
+        Tuple count = new Tuple(new TupleDesc(new Type[]{Type.INT_TYPE}));
+        count.setField(0, new IntField(number));
+        return count;
+
     }
 
     @Override

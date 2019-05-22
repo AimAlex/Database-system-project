@@ -139,4 +139,18 @@ public class Tuple implements Serializable {
         fieldList = new Field[td.numFields()];
         // some code goes here
     }
+
+    public Tuple merge(Tuple t){
+        Tuple tmp = new Tuple(TupleDesc.merge(this.schema, t.getTupleDesc()));
+
+        for (int i = 0; i < schema.numFields(); ++i) {
+            tmp.setField(i, fieldList[i]);
+        }
+
+        for (int i = 0; i < t.getTupleDesc().numFields(); ++i) {
+            tmp.setField(schema.numFields() + i, t.getField(i));
+        }
+
+        return tmp;
+    }
 }

@@ -22,6 +22,8 @@ public class HeapPage implements Page {
     byte[] oldData;
     private final Byte oldDataLock=new Byte((byte)0);
 
+    private TransactionId dirtyId;
+
     /**
      * Create a HeapPage from a set of bytes of data read from disk.
      * The format of a HeapPage is a set of header bytes indicating
@@ -243,6 +245,17 @@ public class HeapPage implements Page {
      */
     public void deleteTuple(Tuple t) throws DbException {
         // some code goes here
+        RecordId rid = t.getRecordId();
+        PageId pid = rid.getPageId();
+        int no = rid.tupleno();
+        if(!pid.equals(this.pid)){
+            throw new DbException("");
+        }
+        if(!isSlotUsed(no)){
+            throw new DbException("");
+        }
+
+        markSlotUsed(no, false);
         // not necessary for lab1
     }
 
@@ -255,6 +268,18 @@ public class HeapPage implements Page {
      */
     public void insertTuple(Tuple t) throws DbException {
         // some code goes here
+
+        RecordId rid = t.getRecordId();
+
+        for (int i = 0; i < numSlots; ++i) {
+            if(!isSlotUsed(i)){
+                markSlotUsed(i, true);
+                tuples[i] = t;
+                t.setRecordId(new RecordId(this.pid, i));
+                return;
+            }
+        }
+        throw new DbException("");
         // not necessary for lab1
     }
 
@@ -264,6 +289,12 @@ public class HeapPage implements Page {
      */
     public void markDirty(boolean dirty, TransactionId tid) {
         // some code goes here
+        if(dirty){
+            this.dirtyId = tid;
+        }
+        else{
+            this.dirtyId = null;
+        }
 	// not necessary for lab1
     }
 
@@ -273,7 +304,8 @@ public class HeapPage implements Page {
     public TransactionId isDirty() {
         // some code goes here
 	// Not necessary for lab1
-        return null;      
+
+        return this.dirtyId;
     }
 
     /**
@@ -315,6 +347,25 @@ public class HeapPage implements Page {
      */
     private void markSlotUsed(int i, boolean value) {
         // some code goes here
+
+        if (i < 0 || i >= numSlots){
+            throw new IllegalArgumentException("");
+        }
+
+        int Byte = i / 8;
+        int Bit = i % 8;
+        if (Byte >= header.length){
+            throw new IllegalArgumentException("");
+        }
+
+        if(value){
+            header[Byte] |= 1 << Bit;
+        }
+        else{
+            header[Byte] &= ((1 << 8) - 1) - (1 << Bit);
+        }
+
+
         // not necessary for lab1
     }
 

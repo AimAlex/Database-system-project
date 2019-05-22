@@ -1,5 +1,8 @@
 package simpledb;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Knows how to compute some aggregate over a set of StringFields.
  */
@@ -15,8 +18,26 @@ public class StringAggregator implements Aggregator {
      * @param what aggregation operator to use -- only supports COUNT
      * @throws IllegalArgumentException if what != COUNT
      */
-
+    private int gbfield;
+    private Type gbfieldtype;
+    private int afield;
+    private Op what;
+    private Map<Field, Integer> countMap;
+    private Map<Field, Tuple> groupMap;
+    private TupleDesc td;
     public StringAggregator(int gbfield, Type gbfieldtype, int afield, Op what) {
+        this.gbfield = gbfield;
+        this.gbfieldtype = gbfieldtype;
+        this.afield = afield;
+        this.what = what;
+        countMap = new HashMap<Field, Integer>();
+        groupMap = new HashMap<Field, Tuple>();
+        if(gbfield == NO_GROUPING){
+            this.td = new TupleDesc(new Type[]{Type.INT_TYPE});
+        }
+        else{
+            this.td = new TupleDesc(new Type[]{gbfieldtype, Type.INT_TYPE});
+        }
         // some code goes here
     }
 
@@ -26,6 +47,28 @@ public class StringAggregator implements Aggregator {
      */
     public void mergeTupleIntoGroup(Tuple tup) {
         // some code goes here
+        Field key = gbfield == NO_GROUPING ? null: tup.getField(gbfield);
+//        Integer value = ((StringField)tup.getField(afield)).getValue().length();
+
+
+        if(countMap.containsKey(key)){
+            countMap.put(key, countMap.get(key) + 1);
+        }
+        else{
+            countMap.put(key, 1);
+        }
+        Integer aggValue = countMap.get(key);
+
+        Tuple tmp = new Tuple(td);
+        if(key == null){
+            tmp.setField(0, new IntField(aggValue));
+        }
+        else{
+            tmp.setField(0, key);
+            tmp.setField(1, new IntField(aggValue));
+        }
+        groupMap.put(key, tmp);
+
     }
 
     /**
@@ -38,7 +81,8 @@ public class StringAggregator implements Aggregator {
      */
     public DbIterator iterator() {
         // some code goes here
-        throw new UnsupportedOperationException("please implement me for lab3");
+
+        return new TupleIterator(td, groupMap.values());
     }
 
 }
