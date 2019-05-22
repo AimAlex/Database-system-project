@@ -16,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/HeapFile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="562">
-              <caret line="134" column="28" lean-forward="true" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
+              <caret line="134" column="28" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
               <folding>
                 <element signature="e#3251#3257#0" expanded="true" />
                 <element signature="e#3676#3682#0" expanded="true" />
@@ -34,11 +34,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Insert.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Insert.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/Insert.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+            <state relative-caret-position="1446">
+              <caret line="95" column="13" lean-forward="true" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JoinTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/simpledb/JoinTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeleteTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/simpledb/systemtest/DeleteTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -46,8 +64,8 @@
       <file leaf-file-name="Delete.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/Delete.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+            <state relative-caret-position="749">
+              <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -74,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/test/simpledb/InsertTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="622">
-              <caret line="40" column="41" lean-forward="true" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -84,24 +102,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="727">
               <caret line="592" column="17" selection-start-line="592" selection-start-column="17" selection-end-line="592" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Table.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/java/simpledb/Table.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BTreeFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/java/simpledb/BTreeFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="1127" column="8" lean-forward="true" selection-start-line="1127" selection-start-column="8" selection-end-line="1130" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -160,8 +160,8 @@
         <option value="$PROJECT_DIR$/src/java/simpledb/Aggregate.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/HeapPage.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/HeapFile.java" />
-        <option value="$PROJECT_DIR$/src/java/simpledb/Delete.java" />
         <option value="$PROJECT_DIR$/test/simpledb/systemtest/InsertTest.java" />
+        <option value="$PROJECT_DIR$/src/java/simpledb/Delete.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/Insert.java" />
       </list>
     </option>
@@ -192,6 +192,11 @@
             <path>
               <item name="simpledb" type="b2602c69:ProjectViewProjectNode" />
               <item name="acmdb-lab" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="simpledb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="acmdb-lab" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -211,30 +216,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="simpledb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acmdb-lab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="BTreeFile.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="simpledb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acmdb-lab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="BTreeInternalPage.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="simpledb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acmdb-lab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="BTreeLeafPage.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="simpledb" type="b2602c69:ProjectViewProjectNode" />
@@ -476,23 +457,11 @@
       <workItem from="1556602453554" duration="38710000" />
       <workItem from="1557048623427" duration="49000" />
       <workItem from="1557904828283" duration="30343000" />
-      <workItem from="1558415290295" duration="19612000" />
+      <workItem from="1558415290295" duration="21319000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="InsertTest_(1) - 2019.05.22 at 11h 50m 04s.xml">
-      <configuration name="InsertTest (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InsertTest_(1) - 2019.05.22 at 11h 52m 46s.xml">
-      <configuration name="InsertTest (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InsertTest_(1) - 2019.05.22 at 11h 53m 23s.xml">
-      <configuration name="InsertTest (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InsertTest_(1) - 2019.05.22 at 11h 55m 52s.xml">
-      <configuration name="InsertTest (1)" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="InsertTest_(1) - 2019.05.22 at 11h 56m 27s.xml">
       <configuration name="InsertTest (1)" configurationId="JUnit" />
     </history-entry>
@@ -511,9 +480,21 @@
     <history-entry file="InsertTest_(1) - 2019.05.22 at 11h 59m 11s.xml">
       <configuration name="InsertTest (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="InsertTest_(1) - 2019.05.22 at 12h 01m 42s.xml">
+      <configuration name="InsertTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeleteTest - 2019.05.22 at 12h 01m 52s.xml">
+      <configuration name="DeleteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeleteTest - 2019.05.22 at 12h 04m 19s.xml">
+      <configuration name="DeleteTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_simpledb - 2019.05.22 at 12h 04m 42s.xml">
+      <configuration name="All in simpledb" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141206000" />
+    <option name="totallyTimeSpent" value="142913000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -538,12 +519,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21393035" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21393035" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12612164" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12612164" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="ANTLR Preview" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -597,13 +578,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/SeqScan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/simpledb/DbIterator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -745,13 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/simpledb/JoinTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
@@ -910,7 +877,7 @@
     <entry file="file://$PROJECT_DIR$/src/java/simpledb/BTreeFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
-          <caret line="1127" column="8" lean-forward="true" selection-start-line="1127" selection-start-column="8" selection-end-line="1130" selection-end-column="19" />
+          <caret line="1127" column="8" selection-start-line="1127" selection-start-column="8" selection-end-line="1130" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -924,7 +891,7 @@
     <entry file="file://$PROJECT_DIR$/test/simpledb/InsertTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="622">
-          <caret line="40" column="41" lean-forward="true" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -932,13 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/Delete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -952,7 +912,7 @@
     <entry file="file://$PROJECT_DIR$/src/java/simpledb/HeapFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="562">
-          <caret line="134" column="28" lean-forward="true" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
+          <caret line="134" column="28" selection-start-line="134" selection-start-column="28" selection-end-line="134" selection-end-column="28" />
           <folding>
             <element signature="e#3251#3257#0" expanded="true" />
             <element signature="e#3676#3682#0" expanded="true" />
@@ -967,10 +927,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/simpledb/systemtest/DeleteTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/simpledb/Delete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/simpledb/Insert.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+        <state relative-caret-position="1446">
+          <caret line="95" column="13" lean-forward="true" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/simpledb/JoinTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
         </state>
       </provider>
     </entry>
