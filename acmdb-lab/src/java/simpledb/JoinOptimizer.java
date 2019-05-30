@@ -111,7 +111,7 @@ public class JoinOptimizer {
             // HINT: You may need to use the variable "j" if you implemented
             // a join algorithm that's more complicated than a basic
             // nested-loops join.
-            return -1.0;
+            return cost1 + card1 * cost2 + card1 * card2;
         }
     }
 
@@ -157,6 +157,25 @@ public class JoinOptimizer {
             Map<String, Integer> tableAliasToId) {
         int card = 1;
         // some code goes here
+
+        if(t1pkey && !t2pkey){
+            card = card2;
+        }
+        else if(!t1pkey && t2pkey){
+            card = card1;
+        }
+        else{
+            card = card1 > card2 ? card1 : card2;
+        }
+        if(joinOp.equals(Predicate.Op.EQUALS)){
+
+        }
+        else if(joinOp.equals(Predicate.Op.NOT_EQUALS)){
+            card = card1 * card2 - card;
+        }
+        else{
+            card = (int)(card1 * card2 * 0.3);
+        }
         return card <= 0 ? 1 : card;
     }
 
@@ -219,9 +238,31 @@ public class JoinOptimizer {
             throws ParsingException {
         //Not necessary for labs 1--3
 
+        int size = this.joins.size();
+        PlanCache plans = new PlanCache();
+
+        for (int i = 1; i <= size; ++i){
+            Set<Set<LogicalJoinNode>> subsets = this.enumerateSubsets(this.joins, i);
+
+            for (Set<LogicalJoinNode> subset: subsets){
+                Double min = Double.MAX_VALUE;
+                CostCard plan = new CostCard();
+
+                for (LogicalJoinNode node: subset){
+                    CostCard newPlan = this.computeCostAndCardOfSubplan(stats, filterSelectivities, node, subset, min, plans);
+                    if(newPlan != null){
+                        min = newPlan.cost;
+                        plan = newPlan;
+                    }
+                }
+                plans.addPlan(subset, plan.cost, plan.card, plan.plan);
+            }
+        }
+        Set<LogicalJoinNode> joinSet = new HashSet<LogicalJoinNode>();
+        joinSet.addAll(joins);
+        return plans.bestOrders.get(joinSet);
         // some code goes here
         //Replace the following
-        return joins;
     }
 
     // ===================== Private Methods =================================

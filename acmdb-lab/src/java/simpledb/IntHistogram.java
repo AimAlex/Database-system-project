@@ -20,7 +20,26 @@ public class IntHistogram {
      * @param min The minimum integer value that will ever be passed to this class for histogramming
      * @param max The maximum integer value that will ever be passed to this class for histogramming
      */
+
+    int buckets;
+    int min;
+    int max;
+    int tuples;
+    int width;
+    int [] histogram;
+
+
     public IntHistogram(int buckets, int min, int max) {
+
+        this.buckets = buckets;
+        this.min = min;
+        this.max = max;
+        this.width = (int)Math.ceil(((double)(max - min + 1)) / buckets);
+        this.tuples = 0;
+        this.histogram = new int [buckets];
+        for (int i = 0; i < buckets; ++i) {
+            this.histogram[i] = 0;
+        }
     	// some code goes here
     }
 
@@ -29,6 +48,9 @@ public class IntHistogram {
      * @param v Value to add to the histogram
      */
     public void addValue(int v) {
+        int position = (v - this.min) / width;
+        histogram[position] += 1;
+        tuples += 1;
     	// some code goes here
     }
 
@@ -43,7 +65,92 @@ public class IntHistogram {
      * @return Predicted selectivity of this particular operator and value
      */
     public double estimateSelectivity(Predicate.Op op, int v) {
+        int index = (v - this.min) / width;
+        int left = min + index * width;
+        int right = min + left + width;
+        double prob = 0.0;
+        switch (op){
+            case EQUALS:
+                if(v > max || v < min){
+                    return 0.0;
+                }
+//                System.out.println((double)histogram[index] / width / tuples);
+                return ((double)histogram[index] / width / tuples);
+            case GREATER_THAN:
+                if(v >= max){
+                    return 0.0;
+                }
+                if(v < min){
+                    return 1.0;
+                }
 
+
+                prob = ((double) (right - v) / width * histogram[index]) / tuples;
+
+                for (int i = index + 1; i < this.buckets; ++i){
+                    prob += (double)histogram[i] /tuples;
+                }
+                return prob;
+            case LESS_THAN:
+                if(v <= this.min){
+                    return 0.0;
+                }
+                if(v > this.max){
+                    return 1.0;
+                }
+
+                prob = (double)(v - left) / width * histogram[index] / tuples;
+
+                for (int i = 0; i < index; ++i) {
+                    prob += (double)histogram[i] / tuples;
+                }
+                return prob;
+
+
+            case LESS_THAN_OR_EQ:
+                if(v < this.min){
+                    return 0.0;
+                }
+                if(v >= this.max){
+                    return 1.0;
+                }
+
+                prob = (double)(v + 1 - left) / width * histogram[index] / tuples;
+
+                for (int i = 0; i < index; ++i) {
+                    prob += (double)histogram[i] / tuples;
+                }
+                return prob;
+
+            case GREATER_THAN_OR_EQ:
+                if(v > max){
+                    return 0.0;
+                }
+                if(v <= min){
+                    return 1.0;
+                }
+
+
+                prob = ((double) (right - v) / width * histogram[index]) / tuples;
+
+                for (int i = index + 1; i < this.buckets; ++i){
+                    prob += (double)histogram[i] /tuples;
+                }
+                return prob;
+
+            case LIKE:
+                if (v < min || v > max) {
+                    return 0.0;
+                }
+
+                return (double)histogram[index] / width / tuples;
+
+            case NOT_EQUALS:
+                if(v > max || v < min){
+                    return 1.0;
+                }
+                return (1 - (double)histogram[index] / width / tuples);
+        }
     	// some code goes here
         return -1.0;
     }
@@ -58,6 +165,7 @@ public class IntHistogram {
      * */
     public double avgSelectivity()
     {
+
         // some code goes here
         return 1.0;
     }
