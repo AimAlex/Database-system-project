@@ -105,7 +105,7 @@ public class Aggregate extends Operator {
     }
 
     public void open() throws NoSuchElementException, DbException,
-	    TransactionAbortedException {
+            TransactionAbortedException, InterruptedException {
 
         child.open();
 
@@ -127,7 +127,7 @@ public class Aggregate extends Operator {
      * the result tuple should contain one field representing the result of the
      * aggregate. Should return null if there are no more tuples.
      */
-    protected Tuple fetchNext() throws TransactionAbortedException, DbException {
+    protected Tuple fetchNext() throws TransactionAbortedException, DbException, InterruptedException {
 	// some code goes here
         if(iter != null && iter.hasNext()){
             return iter.next();
@@ -137,7 +137,7 @@ public class Aggregate extends Operator {
         }
     }
 
-    public void rewind() throws DbException, TransactionAbortedException {
+    public void rewind() throws DbException, TransactionAbortedException, InterruptedException {
         iter.rewind();
 	// some code goes here
     }

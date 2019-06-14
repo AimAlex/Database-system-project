@@ -55,7 +55,7 @@ public class HashEquiJoin extends Operator {
     }
     
     public void open() throws DbException, NoSuchElementException,
-            TransactionAbortedException {
+            TransactionAbortedException, InterruptedException {
         super.open();
         child1.open();
         while(child1.hasNext()){
@@ -76,7 +76,7 @@ public class HashEquiJoin extends Operator {
         // some code goes here
     }
 
-    public void rewind() throws DbException, TransactionAbortedException {
+    public void rewind() throws DbException, TransactionAbortedException, InterruptedException {
         child2.rewind();
         // some code goes here
     }
@@ -101,7 +101,7 @@ public class HashEquiJoin extends Operator {
      * @return The next matching tuple.
      * @see JoinPredicate#filter
      */
-    protected Tuple fetchNext() throws TransactionAbortedException, DbException {
+    protected Tuple fetchNext() throws TransactionAbortedException, DbException, InterruptedException {
         // some code goes here
         if(listIt != null && listIt.hasNext()){
             Tuple tmp1 = listIt.next();

@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class InsertTest extends SimpleDbTestBase {
     private void validateInsert(int columns, int sourceRows, int destinationRows)
-                throws DbException, IOException, TransactionAbortedException {
+            throws DbException, IOException, TransactionAbortedException, InterruptedException {
         // Create the two tables
         ArrayList<ArrayList<Integer>> sourceTuples = new ArrayList<ArrayList<Integer>>();
         HeapFile source = SystemTestUtil.createRandomHeapFile(
@@ -50,22 +50,38 @@ public class InsertTest extends SimpleDbTestBase {
 
     @Test public void testEmptyToEmpty()
             throws IOException, DbException, TransactionAbortedException {
-        validateInsert(3, 0, 0);
+        try {
+            validateInsert(3, 0, 0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void testEmptyToOne()
             throws IOException, DbException, TransactionAbortedException {
-        validateInsert(8, 0, 1);
+        try {
+            validateInsert(8, 0, 1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void testOneToEmpty()
             throws IOException, DbException, TransactionAbortedException {
-        validateInsert(3, 1, 0);
+        try {
+            validateInsert(3, 1, 0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test public void testOneToOne()
             throws IOException, DbException, TransactionAbortedException {
-        validateInsert(1, 1, 1);
+        try {
+            validateInsert(1, 1, 1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /** Make test compatible with older version of ant. */

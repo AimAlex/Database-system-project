@@ -11,18 +11,27 @@ public class DeleteTest extends FilterBase {
 
     @Override
     protected int applyPredicate(HeapFile table, TransactionId tid, Predicate predicate)
-            throws DbException, TransactionAbortedException, IOException {
+            throws DbException, TransactionAbortedException, IOException, InterruptedException {
         SeqScan ss = new SeqScan(tid, table.getId(), "");
         Filter filter = new Filter(predicate, ss);
         Delete deleteOperator = new Delete(tid, filter);
 //        Query q = new Query(deleteOperator, tid);
 
 //        q.start();
-        deleteOperator.open();
+        try {
+            deleteOperator.open();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         boolean hasResult = false;
         int result = -1;
         while (deleteOperator.hasNext()) {
-            Tuple t = deleteOperator.next();
+            Tuple t = null;
+            try {
+                t = deleteOperator.next();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             assertFalse(hasResult);
             hasResult = true;
             assertEquals(SystemTestUtil.SINGLE_INT_DESCRIPTOR, t.getTupleDesc());

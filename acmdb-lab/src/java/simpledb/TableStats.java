@@ -140,6 +140,8 @@ public class TableStats {
             e.printStackTrace();
         } catch (TransactionAbortedException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
 
@@ -169,6 +171,8 @@ public class TableStats {
         } catch (DbException e) {
             e.printStackTrace();
         } catch (TransactionAbortedException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 

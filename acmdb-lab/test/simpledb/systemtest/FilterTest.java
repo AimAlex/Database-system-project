@@ -7,10 +7,14 @@ import simpledb.*;
 public class FilterTest extends FilterBase {
     @Override
     protected int applyPredicate(HeapFile table, TransactionId tid, Predicate predicate)
-            throws DbException, TransactionAbortedException, IOException {
+            throws DbException, TransactionAbortedException, IOException, InterruptedException {
         SeqScan ss = new SeqScan(tid, table.getId(), "");
         Filter filter = new Filter(predicate, ss);
-        filter.open();
+        try {
+            filter.open();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         int resultCount = 0;
         while (filter.hasNext()) {

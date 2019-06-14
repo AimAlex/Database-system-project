@@ -70,7 +70,7 @@ public class HashEquiJoinTest extends SimpleDbTestBase {
     private static final int COLUMNS = 2;
     public void validateJoin(int table1ColumnValue, int table1Rows, int table2ColumnValue,
             int table2Rows)
-            throws IOException, DbException, TransactionAbortedException {
+            throws IOException, DbException, TransactionAbortedException, InterruptedException {
         // Create the two tables
         HashMap<Integer, Integer> columnSpecification = new HashMap<Integer, Integer>();
         columnSpecification.put(0, table1ColumnValue);
@@ -107,7 +107,11 @@ public class HashEquiJoinTest extends SimpleDbTestBase {
         JoinPredicate p = new JoinPredicate(0, Predicate.Op.EQUALS, 0);
         HashEquiJoin joinOp = new HashEquiJoin(p, ss1, ss2);
 
-        joinOp.open();
+        try {
+            joinOp.open();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         int cnt = 0;
         while(joinOp.hasNext()) {

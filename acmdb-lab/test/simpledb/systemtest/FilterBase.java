@@ -16,7 +16,7 @@ public abstract class FilterBase extends SimpleDbTestBase {
 
     /** Should apply the predicate to table. This will be executed in transaction tid. */
     protected abstract int applyPredicate(HeapFile table, TransactionId tid, Predicate predicate)
-            throws DbException, TransactionAbortedException, IOException;
+            throws DbException, TransactionAbortedException, IOException, InterruptedException;
 
     /** Optional hook for validating database state after applyPredicate. */
     protected void validateAfter(HeapFile table)
@@ -27,7 +27,12 @@ public abstract class FilterBase extends SimpleDbTestBase {
     private int runTransactionForPredicate(HeapFile table, Predicate predicate)
             throws IOException, DbException, TransactionAbortedException {
         TransactionId tid = new TransactionId();
-        int result = applyPredicate(table, tid, predicate);
+        int result = 0;
+        try {
+            result = applyPredicate(table, tid, predicate);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Database.getBufferPool().transactionComplete(tid);
         return result;
     }

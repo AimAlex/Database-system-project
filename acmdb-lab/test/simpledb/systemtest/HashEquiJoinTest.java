@@ -48,7 +48,11 @@ public class HashEquiJoinTest extends SimpleDbTestBase {
         HashEquiJoin joinOp = new HashEquiJoin(p, ss1, ss2);
 
         // test the join results
-        SystemTestUtil.matchTuples(joinOp, expectedResults);
+        try {
+            SystemTestUtil.matchTuples(joinOp, expectedResults);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         joinOp.close();
         Database.getBufferPool().transactionComplete(tid);

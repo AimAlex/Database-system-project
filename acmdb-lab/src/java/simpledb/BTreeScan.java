@@ -99,7 +99,7 @@ public class BTreeScan implements DbIterator {
 		this(tid, tableid, Database.getCatalog().getTableName(tableid), ipred);
 	}
 
-	public void open() throws DbException, TransactionAbortedException {
+	public void open() throws DbException, TransactionAbortedException, InterruptedException {
 		if (isOpen)
 			throw new DbException("double open on one DbIterator.");
 
@@ -120,14 +120,14 @@ public class BTreeScan implements DbIterator {
 		return myTd;
 	}
 
-	public boolean hasNext() throws TransactionAbortedException, DbException {
+	public boolean hasNext() throws TransactionAbortedException, DbException, InterruptedException {
 		if (!isOpen)
 			throw new IllegalStateException("iterator is closed");
 		return it.hasNext();
 	}
 
 	public Tuple next() throws NoSuchElementException,
-	TransactionAbortedException, DbException {
+			TransactionAbortedException, DbException, InterruptedException {
 		if (!isOpen)
 			throw new IllegalStateException("iterator is closed");
 
@@ -140,7 +140,7 @@ public class BTreeScan implements DbIterator {
 	}
 
 	public void rewind() throws DbException, NoSuchElementException,
-	TransactionAbortedException {
+			TransactionAbortedException, InterruptedException {
 		close();
 		open();
 	}

@@ -270,15 +270,23 @@ public class HeapPage implements Page {
         // some code goes here
 
         RecordId rid = t.getRecordId();
-
+//        System.out.print(t);
         for (int i = 0; i < numSlots; ++i) {
             if(!isSlotUsed(i)){
                 markSlotUsed(i, true);
                 tuples[i] = t;
-                t.setRecordId(new RecordId(this.pid, i));
+//                if(((IntField) t.getField(0)).getValue() == 6 && ((IntField) t.getField(1)).getValue() == 830){
+////                    System.out.print(i);
+////                    System.out.print(numSlots);
+//                }
+//                t.setRecordId(new RecordId(this.pid, i));
+//                System.out.print(numSlots);
+//                System.out.print();
                 return;
             }
+
         }
+
         throw new DbException("");
         // not necessary for lab1
     }
@@ -376,11 +384,16 @@ public class HeapPage implements Page {
     public Iterator<Tuple> iterator() {
         // some code goes here
         ArrayList<Tuple> tupleUsed = new ArrayList<Tuple>();
+//        System.out.print(tuples.length);
+//        System.out.print(tuples[1]);
         for (int i = 0; i < tuples.length; ++i) {
+
             if (isSlotUsed(i)){
                 tupleUsed.add(tuples[i]);
+
             }
         }
+//        System.out.print(tupleUsed.size());
         return tupleUsed.iterator();
     }
 

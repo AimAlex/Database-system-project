@@ -45,7 +45,7 @@ public class Insert extends Operator {
         return td;
     }
 
-    public void open() throws DbException, TransactionAbortedException {
+    public void open() throws DbException, TransactionAbortedException, InterruptedException {
 
         child.open();
         super.open();
@@ -61,7 +61,7 @@ public class Insert extends Operator {
         // some code goes here
     }
 
-    public void rewind() throws DbException, TransactionAbortedException {
+    public void rewind() throws DbException, TransactionAbortedException, InterruptedException {
         child.rewind();
         fetch = false;
         // some code goes here
@@ -80,7 +80,7 @@ public class Insert extends Operator {
      * @see Database#getBufferPool
      * @see BufferPool#insertTuple
      */
-    protected Tuple fetchNext() throws TransactionAbortedException, DbException {
+    protected Tuple fetchNext() throws TransactionAbortedException, DbException, InterruptedException {
         // some code goes here
         if(fetch){
             return null;
@@ -89,11 +89,7 @@ public class Insert extends Operator {
         int number = 0;
         while(child.hasNext()){
             Tuple tmp = child.next();
-            try {
-                Database.getBufferPool().insertTuple(t, tableId, tmp);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Database.getBufferPool().insertTuple(t, tableId, tmp);
             ++number;
         }
         Tuple t = new Tuple(new TupleDesc(new Type[]{Type.INT_TYPE}));

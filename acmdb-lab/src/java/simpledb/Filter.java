@@ -36,7 +36,7 @@ public class Filter extends Operator {
     }
 
     public void open() throws DbException, NoSuchElementException,
-            TransactionAbortedException {
+            TransactionAbortedException, InterruptedException {
         this.child.open();
         super.open();
 
@@ -51,7 +51,7 @@ public class Filter extends Operator {
         // some code goes here
     }
 
-    public void rewind() throws DbException, TransactionAbortedException {
+    public void rewind() throws DbException, TransactionAbortedException, InterruptedException {
         this.child.rewind();
         // some code goes here
     }
@@ -66,7 +66,7 @@ public class Filter extends Operator {
      * @see Predicate#filter
      */
     protected Tuple fetchNext() throws NoSuchElementException,
-            TransactionAbortedException, DbException {
+            TransactionAbortedException, DbException, InterruptedException {
         // some code goes here
         while(child.hasNext()){
             Tuple tmp = child.next();

@@ -16,7 +16,11 @@ public class AggregateTest extends SimpleDbTestBase {
         SeqScan ss = new SeqScan(tid, table.getId(), "");
         Aggregate ag = new Aggregate(ss, aggregateColumn, groupColumn, operation);
 
-        SystemTestUtil.matchTuples(ag, expectedResult);
+        try {
+            SystemTestUtil.matchTuples(ag, expectedResult);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Database.getBufferPool().transactionComplete(tid);
     }
 

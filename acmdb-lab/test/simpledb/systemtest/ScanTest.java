@@ -44,7 +44,7 @@ public class ScanTest extends SimpleDbTestBase {
     }
 
     /** Test that rewinding a SeqScan iterator works. */
-    @Test public void testRewind() throws IOException, DbException, TransactionAbortedException {
+    @Test public void testRewind() throws IOException, DbException, TransactionAbortedException, InterruptedException {
         ArrayList<ArrayList<Integer>> tuples = new ArrayList<ArrayList<Integer>>();
         HeapFile f = SystemTestUtil.createRandomHeapFile(2, 1000, null, tuples);
 

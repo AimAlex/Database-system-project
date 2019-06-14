@@ -75,6 +75,7 @@ public class HeapFile implements DbFile {
             byte[] Byte = new byte[BufferPool.getPageSize()];
             File.seek(offset);
             File.read(Byte, 0, BufferPool.getPageSize());
+            File.close();
             HeapPageId hpid = (HeapPageId) pid;
             return new HeapPage(hpid, Byte);
         } catch (IOException err){
@@ -87,6 +88,17 @@ public class HeapFile implements DbFile {
     public void writePage(Page page) throws IOException {
         // some code goes here
         // not necessary for lab1
+
+        int pgNo = page.getId().pageNumber();
+        int offset = pgNo * BufferPool.getPageSize();
+        try{
+            RandomAccessFile File = new RandomAccessFile(file, "rw");
+            File.seek(offset);
+            File.write(page.getPageData(), 0, BufferPool.getPageSize());
+            File.close();
+        } catch (IOException err){
+            err.printStackTrace();
+        }
     }
 
     /**
@@ -99,15 +111,16 @@ public class HeapFile implements DbFile {
 
     // see DbFile.java for javadocs
     public ArrayList<Page> insertTuple(TransactionId tid, Tuple t)
-            throws DbException, IOException, TransactionAbortedException {
+            throws DbException, IOException, TransactionAbortedException, InterruptedException {
         // some code goes here
         ArrayList<Page> pages = new ArrayList<Page>();
-
+//        System.out.print(t);
         for(int i = 0; i < numPages(); ++i) {
             PageId pid = new HeapPageId(getId(), i);
             HeapPage page = (HeapPage) Database.getBufferPool().getPage(tid, pid, Permissions.READ_WRITE);
             if(page.getNumEmptySlots() != 0) {
                 page.insertTuple(t);
+
                 pages.add(page);
                 return pages;
             }
@@ -131,7 +144,7 @@ public class HeapFile implements DbFile {
 
     // see DbFile.java for javadocs
     public ArrayList<Page> deleteTuple(TransactionId tid, Tuple t) throws DbException,
-            TransactionAbortedException {
+            TransactionAbortedException, InterruptedException {
         // some code goes here
         HeapPage page = (HeapPage)Database.getBufferPool().getPage(tid, t.getRecordId().getPageId(), Permissions.READ_WRITE);
         page.deleteTuple(t);
@@ -157,13 +170,13 @@ public class HeapFile implements DbFile {
             this.tid = tid;
         }
 
-        private Iterator<Tuple> getTuple(HeapPageId pid) throws TransactionAbortedException, DbException {
+        private Iterator<Tuple> getTuple(HeapPageId pid) throws TransactionAbortedException, DbException, InterruptedException {
              HeapPage hp = (HeapPage) Database.getBufferPool().getPage(tid, pid, Permissions.READ_ONLY);
              return hp.iterator();
         }
 
         @Override
-        public void open() throws DbException, TransactionAbortedException {
+        public void open() throws DbException, TransactionAbortedException, InterruptedException {
             pgNo = 0;
             HeapPageId pid = new HeapPageId(getId(), pgNo);
             tuples = getTuple(pid);
@@ -171,7 +184,7 @@ public class HeapFile implements DbFile {
         }
 
         @Override
-        public boolean hasNext() throws DbException, TransactionAbortedException {
+        public boolean hasNext() throws DbException, TransactionAbortedException, InterruptedException {
             if (tuples == null) return false;
 
             if (tuples.hasNext()) return true;
@@ -187,14 +200,14 @@ public class HeapFile implements DbFile {
         }
 
         @Override
-        public Tuple next() throws DbException, TransactionAbortedException, NoSuchElementException {
+        public Tuple next() throws DbException, TransactionAbortedException, NoSuchElementException, InterruptedException {
             if (!hasNext()) throw new NoSuchElementException();
 
             return tuples.next();
         }
 
         @Override
-        public void rewind() throws DbException, TransactionAbortedException {
+        public void rewind() throws DbException, TransactionAbortedException, InterruptedException {
             open();;
         }
 
