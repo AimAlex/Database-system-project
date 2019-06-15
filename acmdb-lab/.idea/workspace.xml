@@ -12,65 +12,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EvictionTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/simpledb/systemtest/EvictionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1330">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeapFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/java/simpledb/HeapFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3211">
-              <caret line="173" column="37" selection-start-line="173" selection-start-column="27" selection-end-line="173" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReflectiveCallable.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/junit-4.5.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RunAfters.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/junit-4.5.jar!/org/junit/internal/runners/statements/RunAfters.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1577">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlockJUnit4ClassRunner.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/junit-4.5.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeapPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/java/simpledb/HeapPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5966">
-              <caret line="315" selection-start-line="315" selection-end-line="315" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BufferPool.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BufferPool.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/BufferPool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="339" column="80" lean-forward="true" selection-start-line="339" selection-start-column="80" selection-end-line="339" selection-end-column="80" />
+            <state relative-caret-position="1612">
+              <caret line="339" column="80" selection-start-line="339" selection-start-column="80" selection-end-line="339" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BTreeTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/simpledb/systemtest/BTreeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="95" column="18" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="18" />
+              <folding>
+                <element signature="e#3473#3488#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractQueue.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/src.zip!/java/util/AbstractQueue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="186" selection-start-line="186" selection-end-line="186" />
             </state>
           </provider>
         </entry>
@@ -78,7 +45,7 @@
       <file leaf-file-name="BTreeFile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/BTreeFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="19">
               <caret line="497" selection-start-line="497" selection-end-line="497" />
             </state>
           </provider>
@@ -89,15 +56,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="199">
               <caret line="111" selection-start-line="111" selection-end-line="111" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HeapPageId.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/java/simpledb/HeapPageId.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="874">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -146,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/java/simpledb/IndexPredicate.java" />
         <option value="$PROJECT_DIR$/test/simpledb/systemtest/BTreeFileInsertTest.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/Predicate.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/JoinPredicate.java" />
@@ -197,6 +154,7 @@
         <option value="$PROJECT_DIR$/src/java/simpledb/Insert.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/HeapPage.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/BufferPool.java" />
+        <option value="$PROJECT_DIR$/test/simpledb/systemtest/BTreeTest.java" />
       </list>
     </option>
   </component>
@@ -325,52 +283,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="BTreeDeadlockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="simpledb" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="simpledb.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="simpledb" />
-      <option name="MAIN_CLASS_NAME" value="simpledb.BTreeDeadlockTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="BTreeDeadlockTest.testReadWriteDeadlock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="simpledb" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="simpledb.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="simpledb" />
-      <option name="MAIN_CLASS_NAME" value="simpledb.BTreeDeadlockTest" />
-      <option name="METHOD_NAME" value="testReadWriteDeadlock" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration name="BTreeFileDeleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="simpledb" />
       <extension name="coverage">
@@ -406,6 +318,52 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="simpledb.systemtest" />
       <option name="MAIN_CLASS_NAME" value="simpledb.systemtest.BTreeTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="BTreeTest.testBigFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="simpledb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simpledb.systemtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="simpledb.systemtest" />
+      <option name="MAIN_CLASS_NAME" value="simpledb.systemtest.BTreeTest" />
+      <option name="METHOD_NAME" value="testBigFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="HashEquiJoinTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="simpledb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="simpledb.systemtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="simpledb.systemtest" />
+      <option name="MAIN_CLASS_NAME" value="simpledb.systemtest.HashEquiJoinTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -456,19 +414,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.BTreeDeadlockTest" />
-      <item itemvalue="JUnit.BTreeDeadlockTest.testReadWriteDeadlock" />
       <item itemvalue="JUnit.BTreeFileDeleteTest" />
       <item itemvalue="JUnit.All in simpledb" />
       <item itemvalue="JUnit.BTreeTest" />
+      <item itemvalue="JUnit.BTreeTest.testBigFile" />
+      <item itemvalue="JUnit.HashEquiJoinTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BTreeTest" />
+        <item itemvalue="JUnit.HashEquiJoinTest" />
+        <item itemvalue="JUnit.BTreeTest.testBigFile" />
         <item itemvalue="JUnit.All in simpledb" />
         <item itemvalue="JUnit.BTreeFileDeleteTest" />
-        <item itemvalue="JUnit.BTreeDeadlockTest.testReadWriteDeadlock" />
-        <item itemvalue="JUnit.BTreeDeadlockTest" />
       </list>
     </recent_temporary>
   </component>
@@ -498,22 +456,11 @@
       <workItem from="1560163310028" duration="6628000" />
       <workItem from="1560429868808" duration="44166000" />
       <workItem from="1560603140420" duration="281000" />
+      <workItem from="1560604027951" duration="2375000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TransactionTest_testAllDirtyFails - 2019.06.15 at 13h 23m 45s.xml">
-      <configuration name="TransactionTest.testAllDirtyFails" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TransactionTest_testAllDirtyFails - 2019.06.15 at 13h 24m 23s.xml">
-      <configuration name="TransactionTest.testAllDirtyFails" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TransactionTest_testAllDirtyFails - 2019.06.15 at 13h 26m 25s.xml">
-      <configuration name="TransactionTest.testAllDirtyFails" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TransactionTest_testAllDirtyFails - 2019.06.15 at 13h 28m 48s.xml">
-      <configuration name="TransactionTest.testAllDirtyFails" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TransactionTest_(1) - 2019.06.15 at 20h 52m 45s.xml">
       <configuration name="TransactionTest (1)" configurationId="JUnit" />
     </history-entry>
@@ -532,9 +479,21 @@
     <history-entry file="BTreeFileDeleteTest - 2019.06.15 at 20h 55m 54s.xml">
       <configuration name="BTreeFileDeleteTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BTreeTest - 2019.06.15 at 21h 09m 11s.xml">
+      <configuration name="BTreeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BTreeTest_testBigFile - 2019.06.15 at 21h 13m 00s.xml">
+      <configuration name="BTreeTest.testBigFile" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HashEquiJoinTest - 2019.06.15 at 21h 30m 10s.xml">
+      <configuration name="HashEquiJoinTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BTreeTest - 2019.06.15 at 21h 39m 09s.xml">
+      <configuration name="BTreeTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224718000" />
+    <option name="totallyTimeSpent" value="227093000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -547,6 +506,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="2048" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32969698" />
@@ -558,19 +518,19 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50049853" side_tool="true" weight="0.3283582" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37910447" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37910447" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09770688" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09870389" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="ANTLR Preview" order="12" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.018597998" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4995015" weight="0.3283582" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4995015" visible="true" weight="0.3283582" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -588,18 +548,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/java/simpledb/BufferPool.java</url>
-          <line>362</line>
-          <properties />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="57" />
+      <option name="time" value="59" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -630,20 +582,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/HashEquiJoin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="79" column="17" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/TableStats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/simpledb/systemtest/DeleteTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -982,6 +920,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/simpledb/BufferPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1612">
+          <caret line="339" column="80" selection-start-line="339" selection-start-column="80" selection-end-line="339" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/simpledb/BTreeFileInsertTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -991,15 +936,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/simpledb/BTreeFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
+        <state relative-caret-position="19">
           <caret line="497" selection-start-line="497" selection-end-line="497" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/BufferPool.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/src.zip!/java/util/AbstractQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="339" column="80" lean-forward="true" selection-start-line="339" selection-start-column="80" selection-end-line="339" selection-end-column="80" />
+        <state relative-caret-position="349">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/simpledb/systemtest/BTreeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="95" column="18" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="18" />
+          <folding>
+            <element signature="e#3473#3488#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
