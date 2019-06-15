@@ -329,7 +329,7 @@ public class BufferPool {
 //        System.out.print(((HeapPage)page).tuples[1]);
         if(page.isDirty() != null){
 
-            ((HeapFile)Database.getCatalog().getDatabaseFile(pid.getTableId())).writePage(page);
+            (Database.getCatalog().getDatabaseFile(pid.getTableId())).writePage(page);
             page.markDirty(false, null);
         }
         // not necessary for lab1
@@ -357,7 +357,7 @@ public class BufferPool {
 
         Integer maximum = 0;
         for (Map.Entry<PageId, Integer> entry : pageUsed.entrySet()) {
-            HeapPage tmp = (HeapPage)pageMap.get(entry.getKey());
+            Page tmp = pageMap.get(entry.getKey());
             if(tmp.isDirty() == null) {
                 if (entry.getValue() >= maximum) {
                     maximum = entry.getValue();
