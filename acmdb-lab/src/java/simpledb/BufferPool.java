@@ -84,15 +84,41 @@ public class BufferPool {
             throws TransactionAbortedException, DbException, InterruptedException {
 
         // some code goes here
-        boolean hasLock = lockManager.grantLock(tid, pid, perm, true);
-        while(!hasLock){
-            if(lockManager.deadLockOccur(tid, pid)){
-                throw new TransactionAbortedException();
+
+
+            boolean hasLock = lockManager.grantLock(tid, pid, perm);
+            while (!hasLock) {
+                System.out.print("grantLock failed\n");
+                synchronized (this){
+                    if (lockManager.deadLockOccur(tid, pid)) {
+//                        synchronized (this) {
+//                            System.out.print(tid);
+//                            System.out.print("***");
+//                            System.out.print(pid);
+//                            System.out.print("\n");
+//                        }
+                        System.out.print("deadLock\n");
+                        throw new TransactionAbortedException();
+                    }
+                }
+                Thread.sleep(200);
+                hasLock = lockManager.grantLock(tid, pid, perm);
             }
-            Thread.sleep(200);
-            hasLock = lockManager.grantLock(tid, pid, perm, false);
-        }
-        addPage(pid);
+
+                                synchronized (this) {
+                                    System.out.print("\nlock granted \n");
+                                    System.out.print(perm);
+                                    System.out.print("\n");
+                            System.out.print(tid);
+                            System.out.print("***");
+                            System.out.print(pid);
+                            System.out.print("\n\n");
+                            if(perm.equals(Permissions.READ_WRITE)){
+                                System.out.print("");
+                            }
+                        }
+
+            addPage(pid);
         return pageMap.get(pid);
     }
 
@@ -140,7 +166,7 @@ public class BufferPool {
     public  void releasePage(TransactionId tid, PageId pid) {
         // some code goes here
         // not necessary for lab1|lab2\
-        lockManager.releaseLock(tid, pid);
+            lockManager.releaseLock(tid, pid);
     }
 
     /**
@@ -148,10 +174,10 @@ public class BufferPool {
      *
      * @param tid the ID of the transaction requesting the unlock
      */
-    public void transactionComplete(TransactionId tid) throws IOException {
+    public synchronized void transactionComplete(TransactionId tid) throws IOException {
         // some code goes here
         // not necessary for lab1|lab2
-        transactionComplete(tid, true);
+            transactionComplete(tid, true);
     }
 
     /** Return true if the specified transaction has a lock on the specified page */
@@ -168,36 +194,34 @@ public class BufferPool {
      * @param tid the ID of the transaction requesting the unlock
      * @param commit a flag indicating whether we should commit or abort
      */
-    public void transactionComplete(TransactionId tid, boolean commit)
+    public synchronized void transactionComplete(TransactionId tid, boolean commit)
         throws IOException {
         // some code goes here
         // not necessary for lab1|lab2
-
-        if(commit){
-            for(Page page : pageMap.values()){
-                if(page.isDirty() == null){
-                    page.setBeforeImage();
-                }
-                else if(page.isDirty().equals(tid)){
+            if (commit) {
+                for (Page page : pageMap.values()) {
+                    if (page.isDirty() == null) {
+                        page.setBeforeImage();
+                    } else if (page.isDirty().equals(tid)) {
 //                    System.out.print(tid);
 //                    System.out.print(page.isDirty());
 
-                    flushPage(page.getId());
-                    page.setBeforeImage();
+                        flushPage(page.getId());
+                        page.setBeforeImage();
 //                    System.out.print(((HeapPage)page).tuples[1]);
 //                    System.out.print(page.isDirty());
+                    }
+                }
+            } else {
+                for (Page page : pageMap.values()) {
+                    if (page.isDirty() != null && page.isDirty().equals(tid)) {
+                        pageMap.put(page.getId(), page.getBeforeImage());
+                    }
                 }
             }
-        }
-        else{
-            for(Page page: pageMap.values()){
-                if(page.isDirty() != null && page.isDirty().equals(tid)){
-                    pageMap.put(page.getId(), page.getBeforeImage());
-                }
-            }
-        }
 
-        lockManager.releaseTidLock(tid);
+            lockManager.releaseTidLock(tid);
+
     }
 
     /**
@@ -223,8 +247,8 @@ public class BufferPool {
         try {
             ArrayList<Page> pages = Database.getCatalog().getDatabaseFile(tableId).insertTuple(tid, t);
             for (Page page : pages) {
+                getPage(tid, page.getId(), Permissions.READ_WRITE);
                 page.markDirty(true, tid);
-                getPage(tid, page.getId(), Permissions.READ_ONLY);
                 pageMap.put(page.getId(), page);
             }
         } catch (DbException| IOException| TransactionAbortedException e){
@@ -251,21 +275,17 @@ public class BufferPool {
      * @param t the tuple to delete
      */
     public  void deleteTuple(TransactionId tid, Tuple t)
-        throws DbException, IOException, TransactionAbortedException {
+            throws DbException, IOException, TransactionAbortedException, InterruptedException {
         // some code goes here
-        try{
-            ArrayList<Page> pages = Database.getCatalog().getDatabaseFile(t.getRecordId().getPageId().getTableId()).deleteTuple(tid, t);
+        int table = t.getRecordId().getPageId().getTableId();
+        DbFile file = Database.getCatalog().getDatabaseFile(table);
+            ArrayList<Page> pages = file.deleteTuple(tid, t);
             for (Page page : pages) {
+                getPage(tid, page.getId(), Permissions.READ_WRITE);
                 page.markDirty(true, tid);
-                getPage(tid, page.getId(), Permissions.READ_ONLY);
                 pageMap.put(page.getId(), page);
-            }
 
-        } catch (DbException| IOException| TransactionAbortedException e){
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            }
         // not necessary for lab1
     }
 

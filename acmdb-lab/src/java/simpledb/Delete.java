@@ -83,7 +83,7 @@ public class Delete extends Operator {
             }
             ++number;
         }
-        Tuple count = new Tuple(new TupleDesc(new Type[]{Type.INT_TYPE}));
+        Tuple count = new Tuple(td);
         count.setField(0, new IntField(number));
         return count;
 

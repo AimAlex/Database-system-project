@@ -279,7 +279,7 @@ public class HeapPage implements Page {
 ////                    System.out.print(i);
 ////                    System.out.print(numSlots);
 //                }
-//                t.setRecordId(new RecordId(this.pid, i));
+                t.setRecordId(new RecordId(this.pid, i));
 //                System.out.print(numSlots);
 //                System.out.print();
                 return;

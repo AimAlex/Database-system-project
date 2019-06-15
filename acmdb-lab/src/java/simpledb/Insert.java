@@ -92,7 +92,7 @@ public class Insert extends Operator {
             Database.getBufferPool().insertTuple(t, tableId, tmp);
             ++number;
         }
-        Tuple t = new Tuple(new TupleDesc(new Type[]{Type.INT_TYPE}));
+        Tuple t = new Tuple(td);
         t.setField(0, new IntField(number));
         return t;
     }
