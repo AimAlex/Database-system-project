@@ -2,10 +2,7 @@ package simpledb;
 
 import java.io.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
 
@@ -123,7 +120,7 @@ public class BufferPool {
     }
 
 
-    public void addPage(PageId pid) {
+    public void addPage(PageId pid) throws DbException {
         if (pageMap.containsKey(pid)) {
             usePage(pid);
             return;
@@ -137,8 +134,8 @@ public class BufferPool {
 //            System.out.print(((HeapPage)newPage).tuples[1]);
             pageMap.put(pid, newPage);
             usePage(pid);
-        } catch (DbException e) {
-            e.printStackTrace();
+        } catch (NoSuchElementException e) {
+            throw new DbException("");
         }
     }
 
@@ -368,6 +365,7 @@ public class BufferPool {
                 }
             }
         }
+
         try {
             if(pageId != null) {
                 flushPage(pageId);
