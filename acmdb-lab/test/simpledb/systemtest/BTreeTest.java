@@ -108,7 +108,7 @@ public class BTreeTest extends SimpleDbTestBase {
 		// now insert some random tuples
 		System.out.println("Inserting tuples...");
     	ArrayList<BTreeInserter> insertThreads = new ArrayList<BTreeInserter>();
-		for(int i = 0; i < 40; i++) {
+		for(int i = 0; i < 200; i++) {
 			BTreeInserter bi = startInserter(bf, getRandomTupleData(), insertedTuples);
 			insertThreads.add(bi);
 			// The first few inserts will cause pages to split so give them a little
@@ -116,7 +116,7 @@ public class BTreeTest extends SimpleDbTestBase {
 			Thread.sleep(r.nextInt(POLL_INTERVAL));
 		}
 		
-		for(int i = 0; i < 160; i++) {
+		for(int i = 0; i < 800; i++) {
 			BTreeInserter bi = startInserter(bf, getRandomTupleData(), insertedTuples);
 			insertThreads.add(bi);
 		}
