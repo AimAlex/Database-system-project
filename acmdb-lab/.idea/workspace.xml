@@ -17,10 +17,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BufferPool.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BufferPool.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/BufferPool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1786">
+            <state relative-caret-position="-357">
               <caret line="104" column="34" lean-forward="true" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="61" />
             </state>
           </provider>
@@ -35,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BTreeRootPtrPage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BTreeRootPtrPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/BTreeRootPtrPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="344">
               <caret line="137" selection-start-line="137" selection-end-line="137" />
             </state>
           </provider>
@@ -100,8 +100,8 @@
       <file leaf-file-name="LockManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/simpledb/LockManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4123">
-              <caret line="222" column="9" lean-forward="true" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
+            <state relative-caret-position="2513">
+              <caret line="144" column="29" lean-forward="true" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -153,9 +153,9 @@
       <find>numPage</find>
       <find>insert</find>
       <find>synch</find>
-      <find>Sync</find>
       <find>write</find>
       <find>holds</find>
+      <find>Sync</find>
     </findStrings>
     <replaceStrings>
       <replace>//System</replace>
@@ -212,9 +212,9 @@
         <option value="$PROJECT_DIR$/src/java/simpledb/Insert.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/HeapPage.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/BTreeFile.java" />
-        <option value="$PROJECT_DIR$/src/java/simpledb/LockManager.java" />
         <option value="$PROJECT_DIR$/src/java/simpledb/BufferPool.java" />
         <option value="$PROJECT_DIR$/test/simpledb/systemtest/BTreeTest.java" />
+        <option value="$PROJECT_DIR$/src/java/simpledb/LockManager.java" />
       </list>
     </option>
   </component>
@@ -322,7 +322,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TransactionTest">
+  <component name="RunManager" selected="JUnit.BTreeTest.testBigFile">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -488,9 +488,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TransactionTest" />
-        <item itemvalue="JUnit.BTreeTest" />
         <item itemvalue="JUnit.BTreeTest.testBigFile" />
+        <item itemvalue="JUnit.BTreeTest" />
+        <item itemvalue="JUnit.TransactionTest" />
         <item itemvalue="JUnit.simpledb.systemtest in simpledb" />
         <item itemvalue="JUnit.AbortEvictionTest" />
       </list>
@@ -522,14 +522,11 @@
       <workItem from="1560163310028" duration="6628000" />
       <workItem from="1560429868808" duration="44166000" />
       <workItem from="1560603140420" duration="281000" />
-      <workItem from="1560604027951" duration="26245000" />
+      <workItem from="1560604027951" duration="26699000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BTreeTest - 2019.06.16 at 19h 39m 58s.xml">
-      <configuration name="BTreeTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BTreeTest_testBigFile - 2019.06.16 at 19h 44m 18s.xml">
       <configuration name="BTreeTest.testBigFile" configurationId="JUnit" />
     </history-entry>
@@ -557,9 +554,12 @@
     <history-entry file="TransactionTest - 2019.06.16 at 21h 14m 21s.xml">
       <configuration name="TransactionTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BTreeTest - 2019.06.16 at 22h 15m 48s.xml">
+      <configuration name="BTreeTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250963000" />
+    <option name="totallyTimeSpent" value="251417000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -592,11 +592,11 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31044775" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31044775" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32951146" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09870389" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09870389" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -991,20 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/LockManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4123">
-          <caret line="222" column="9" lean-forward="true" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/Insert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/simpledb/HeapPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2505">
@@ -1019,17 +1005,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/BufferPool.java">
+    <entry file="file://$PROJECT_DIR$/src/java/simpledb/BTreeRootPtrPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1786">
-          <caret line="104" column="34" lean-forward="true" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="61" />
+        <state relative-caret-position="344">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/simpledb/BTreeRootPtrPage.java">
+    <entry file="file://$PROJECT_DIR$/src/java/simpledb/Insert.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        <state relative-caret-position="674">
+          <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/simpledb/LockManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2513">
+          <caret line="144" column="29" lean-forward="true" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/simpledb/BufferPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="104" column="34" lean-forward="true" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="61" />
         </state>
       </provider>
     </entry>

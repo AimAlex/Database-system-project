@@ -172,7 +172,7 @@ public class LockManager {
 
     }
 
-    public synchronized void releaseTidLock(TransactionId tid){
+    public void releaseTidLock(TransactionId tid){
         ConcurrentHashMap<PageId, Boolean> readPage = readPages.get(tid);
 
         if(readPage != null){
