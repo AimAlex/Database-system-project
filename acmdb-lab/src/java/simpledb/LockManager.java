@@ -116,6 +116,10 @@ public class LockManager {
 
     public boolean holdsLock(TransactionId tid, PageId pid){
         //System.out.print("\n Call holdLock \n");
+        if(!lockMap.containsKey(pid)){
+            Object lock = new Object();
+            lockMap.put(pid, lock);
+        }
         Object lock = lockMap.get(pid);
         synchronized (lock) {
             TransactionId writeLock = writeLocks.get(pid);
@@ -128,6 +132,10 @@ public class LockManager {
     }
 
     public boolean holdsWriteLock(TransactionId tid, PageId pid){
+        if(!lockMap.containsKey(pid)){
+            Object lock = new Object();
+            lockMap.put(pid, lock);
+        }
         Object lock = lockMap.get(pid);
         synchronized (lock) {
             TransactionId writeLock = writeLocks.get(pid);
@@ -138,8 +146,30 @@ public class LockManager {
         }
     }
 
+    public boolean isWriteLock(PageId pid){
+        if(!lockMap.containsKey(pid)){
+            Object lock = new Object();
+            lockMap.put(pid, lock);
+        }
+
+        Object lock = lockMap.get(pid);
+        synchronized (lock){
+            TransactionId tid = writeLocks.get(pid);
+            if(tid != null){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+
 
     public void releaseLock(TransactionId tid, PageId pid) {
+        if(!lockMap.containsKey(pid)){
+            Object lock = new Object();
+            lockMap.put(pid, lock);
+        }
         Object lock = lockMap.get(pid);
 //        System.out.print(lock);
         synchronized (lock) {

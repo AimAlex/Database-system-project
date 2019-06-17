@@ -383,7 +383,7 @@ public class BufferPool {
         Integer maximum = 0;
         for (Map.Entry<PageId, Integer> entry : pageUsed.entrySet()) {
             Page tmp = pageMap.get(entry.getKey());
-            if(tmp.isDirty() == null) {
+            if(!lockManager.isWriteLock(tmp.getId())){
                 if (entry.getValue() >= maximum) {
                     maximum = entry.getValue();
                     pageId = entry.getKey();
@@ -391,6 +391,18 @@ public class BufferPool {
             }
         }
 
+
+        if(pageId == null){
+            for (Map.Entry<PageId, Integer> entry : pageUsed.entrySet()) {
+                Page tmp = pageMap.get(entry.getKey());
+                if(tmp.isDirty() == null) {
+                    if (entry.getValue() >= maximum) {
+                        maximum = entry.getValue();
+                        pageId = entry.getKey();
+                    }
+                }
+            }
+        }
         try {
             if(pageId != null) {
                 flushPage(pageId);
